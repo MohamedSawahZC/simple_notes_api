@@ -39,3 +39,30 @@ function deleteFile($dir,$imageName){
         unlink($dir . "/" . $imageName);
     }
 }
+
+
+function checkAuthenticate(){
+    
+    
+        if (isset($_SERVER['PHP_AUTH_USER'])  && isset($_SERVER['PHP_AUTH_PW'])) {
+    
+    
+            if ($_SERVER['PHP_AUTH_USER'] != "Sawah" ||  $_SERVER['PHP_AUTH_PW'] != "Sawah"){
+    
+                header('WWW-Authenticate: Basic realm="My Realm"');
+    
+                header('HTTP/1.0 401 Unauthorized');
+    
+                echo 'Page Not Found';
+    
+                exit;
+    
+            }
+    
+        } else {
+    
+            exit;
+    
+        }
+    
+    }

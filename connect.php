@@ -15,6 +15,10 @@ try {
     
 $connect = new PDO($dsn , $user , $pasword , $option);
 $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With, Access-Control-Allow-Origin");
+   header("Access-Control-Allow-Methods: POST, OPTIONS , GET");
+   checkAuthenticate();
 }catch(PDOException $error){
     echo $error->getMessage();
 }
