@@ -32,3 +32,10 @@ function ImageUpload($fieldName){
         return "Faild";
     }
 }
+
+
+function deleteFile($dir,$imageName){
+    if (file_exists($dir . "/" . $imageName)){
+        unlink($dir . "/" . $imageName);
+    }
+}
